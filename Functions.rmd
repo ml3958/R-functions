@@ -23,3 +23,17 @@ clustgram <- function(data,cutree){
   }
 }
 ```
+##plod3D
+```r
+install.packages("scatterplot3d")
+library(scatterplot3d)
+# use cluster by "average" linkage method
+plot3D <- function(x,y,z,group){
+  #group will be a grouping information of each data point, ie cutree(hr)
+  colorPanel <- palette(rainbow(length(unique(group))))
+  col <- colorPanel[group]
+  scatterplot3d(x,y,z,cex.symbols =0.5,color=col,pch=16)
+}
+#example
+plot3D(log(y[,2]),log(y[,3]),log(y[,1]),cutree(hr_avg,k=8))
+```
