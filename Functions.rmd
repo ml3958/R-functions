@@ -1,0 +1,19 @@
+heatmap <- function(data,hr,mycl){
+  # example: heatmap(y,hr_avg, cutree(hr_avg,k=6))
+  mycolhc <- rainbow(length(unique(mycl)), start=0.1, end=0.9); 
+  mycolhc <- mycolhc[as.vector(mycl)] 
+  heatmap.2(y, Rowv=as.dendrogram(hr),col=myheatcol, scale="row", density.info="none",  
+            #Colv=as.dendrogram(hc),
+            trace="none", RowSideColors=mycolhc,cexRow = 0.08) # Creates heatmap for entire data set where the obtained clusters are indicated in the color bar.
+}
+
+clustgram <- function(data,cutree){
+  colorPanel <- rainbow(length(unique(cutree)), start=0.1, end=0.9); 
+  col <- colorPanel[as.vector(cutree)] 
+  plot(c(1,2),xlim=c(0,4),ylim=range(data),type="n",xaxt = "none",xlab="experiment",ylab="Normalized RNA-seq")
+  axis(1, at=c(0:4), labels=colnames(y))
+  abline(v=c(0:4),col="grey")
+  for (i in 1:nrow(data)) {
+    lines(c(0:4), y[i,], type="b", lwd=1.5,col=col[i])
+  }
+}
