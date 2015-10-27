@@ -1,4 +1,4 @@
-##heatmap
+##heatmap 5.**.2014
 need to library(gplots)
 ```r
 heatmap <- function(data,hr,mycl){
@@ -10,7 +10,7 @@ heatmap <- function(data,hr,mycl){
             trace="none", RowSideColors=mycolhc,cexRow = 0.08) # Creates heatmap for entire data set where the obtained clusters are indicated in the color bar.
 }
 ```
-##clustgram
+##clustgram 10.25.2015
 ```r
 clustgram <- function(data,cutree){
   colorPanel <- rainbow(length(unique(cutree)), start=0.1, end=0.9); 
@@ -23,7 +23,7 @@ clustgram <- function(data,cutree){
   }
 }
 ```
-##plod3D
+##plod3D 10.27.2015
 ```r
 install.packages("scatterplot3d")
 library(scatterplot3d)
