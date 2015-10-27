@@ -22,4 +22,4 @@ clustgram <- function(data,cutree){
     lines(c(0:4), y[i,], type="b", lwd=1.5,col=col[i])
   }
 }
-```r
+```
